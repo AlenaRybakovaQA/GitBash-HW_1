@@ -1,0 +1,80 @@
+
+1) Посмотреть где я - pwd
+2) Создать папку - mkdir qa_group(название папки)
+3) Зайти в папку - cd qa_group(название папки)
+4) Создать 3 папки - mkdir qa_group1 qa_group2 qa_group3 
+5) Зайти в любоую папку - cd qa_group1
+6) Создать 5 файлов (3 txt, 2 json) 
+- touch one.txt (название файла с расширением)
+- touch two.txt three.txt touch one.json touch two.json
+7) Создать 3 вложенные папки - mkdir  -p qa_group50/8/9/10
+8) Вывести список содержимого папки 
+- ls (в строку все содержимое) 
+или ls -l(списком каждый файл в новой строке)
+или ls -lа (с указателем на текущее положение и на родительскую директорию)
+9)  oткрыть любой txt файл - cat one.txt ; vim one.txt
+10) написать туда что-нибудь, любой текст - под коммандой вводим текст 
+11) сохранить и выйти - после ввода текста нажимаем Enter и после этого Ctrl+C
+12) Выйти из папки на уровень выше 
+- сd ..(на один уровень выше)
+- cd ../../(на два уровня выше от текущего положения)
+
+13) переместить любые 2 файла, которые вы создали, в любую другую папку 
+- mv qa_group1/one.txt qa_group2/one.txt
+- mv qa_group1/two.json qa_group2/two.json
+- одной коммандой несколько файлов - mv qa_group1/{two/txt,two.json} qa_group40
+14) скопировать любые 2 файла, которые вы создали, в любую другую папку
+- cp qa_group2/one.txt qa_group1/one.txt
+- cp qa_group2/two.json qa_group1/two.json
+- одной коммандой несколько файлов - ср qa_group40/{two.txt,two.json} qa_group50
+15) Найти файл по имени 
+- find three.txt(работает по директории в которой есть папка)
+- find . -name three.txt (работает в других директориях, предварительно вышла на 2 дирректории выше)
+16) просмотреть содержимое в реальном времени (команда grep) изучите как она работает 
+- grep предназначена для поиска строк, соответствующих шаблону
+- tail -f one.txt для просмотра содержимомго файла в реальном времени,
+- после сохранения данных в папке- они синхронно отображается в Git Bach
+17) вывести несколько первых строк из текстового файла - tail -3 one.txt (выведет последние три строчки)
+18) вывести несколько последних строк из текстового файла - head -2 one.txt (выведет первые три)
+19) просмотреть содержимое длинного файла (команда less) изучите как она работает
+- less three.txt ( для дир. где находиться файл, для выхода "q") 
+- less ./qa_group.group/qa_group40/two.txt (для просмотра файла из других дир.)
+20) вывести дату и время - date 
+21) вывести дату и время изменения файла 
+- ls -la (выведиться дата изменений файла- напротив каждого файла дата)
+- find ./ -mtime -1 (за один день, 0- сегодня )
+=========
+
+Задание *
+1) Отправить http запрос на сервер.
+http://162.55.220.72:5005/terminal-hw-request - curl http://162.55.220.72:5005/terminal-hw-request
+                                                % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                                Dload  Upload   Total   Spent    Left  Speed
+                                                100   237  100   237    0     0    945      0 --:--:-- --:--:-- --:--:--   
+                                                951{"Intro":"Hello!! This is your the first response from server",
+                                                "Tasks":{"Task_1":"Send the next URL in terminal: http://162.55.220.72:5005/get_method?name=(set_your_String)&age=(set_your_number)",
+                                                "result":["Your_String","Your_number"]}}
+                    Отправила еще один запрос - curl "http://162.55.220.72:5005/get_method?name=Alena&age=31"
+                                                % Total    % Received % Xferd  Average Speed   Time    Time     Time  Current
+                                                Dload  Upload   Total   Spent    Left  Speed
+                                                100    15  100    15    0     0     62      0 --:--:-- --:--:-- --:--:--
+                                                62["Alena","31"]              
+
+ 2) Написать скрипт который выполнит автоматически пункты 3, 4, 5, 6, 7, 8, 13 - touch myscript.sh (создать файл для скрипта)
+                                                                                vim myscript.sh (открыть файл и написать скрипт)
+                                                                                #!/bin/bash
+                                                                                mkdir qa_group.group
+                                                                                cd qa_group.group
+                                                                                mkdir qa_group4 qa_group5 qa_group6
+                                                                                cd qa_group4
+                                                                                touch one.txt two.txt three.txt one.json two.json
+                                                                                mkdir qa_group1.1 qa_group1.2 qa_group1.3
+                                                                                ls -lа
+                                                                                cd .. (чтобы выйти в верхнюю диркторию)
+                                                                                mv qa_group1/one.txt qa_group2/one.txt
+                                                                                mv qa_group1/two.json qa_group2/two.json
+                                                                                chmod +x ./myscript.sh (позволянт сделать скрипт испольняемым)
+                                                                                ./myscript.sh (запускает скрипт)
+
+=====================
+
